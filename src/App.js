@@ -1,4 +1,11 @@
 import React, { createRef } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { Theme } from '@radix-ui/themes'
+import "@radix-ui/themes/styles.css";
+import Dashboard from './Pages/Dashboard/Dashboard';
+import LandingPage from './Components/LandingPage/Page';
+import HeroOne from './Pages/Dashboard/HeroOne';
+import Hero from './Components/LandingPage/Hero';
 import {
   Container,
   Dimmer,
@@ -8,10 +15,8 @@ import {
   Message,
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
-
 import { SubstrateContextProvider, useSubstrateState } from './substrate-lib'
 import { DeveloperConsole } from './substrate-lib/components'
-
 import AccountSelector from './AccountSelector'
 import Balances from './Balances'
 import BlockNumber from './BlockNumber'
@@ -62,6 +67,14 @@ function Main() {
       <Sticky context={contextRef}>
         <AccountSelector />
       </Sticky>
+      <Theme>
+        
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/Dashboard' element={<Dashboard />} />
+        <Route path='HeroOne' element={<HeroOne />} />
+        <Route path='Hero' element={<Hero />} />
+      
+      </Theme>
       <Container>
         <Grid stackable columns="equal">
           <Grid.Row stretched>
